@@ -43,7 +43,8 @@
 		$tmp_post = $post;
 		$myposts = get_posts( 'post_type=quote&numberposts=1&orderby=rand' );
 		foreach( $myposts as $post ) : setup_postdata($post); ?>
-		    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+		    <?php the_title(); ?>
+		    <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a>
 		<?php endforeach; ?>
 		<?php $post = $tmp_post; ?>
 
