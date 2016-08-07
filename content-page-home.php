@@ -38,35 +38,14 @@
 	<section>
 		apprenticeship quotes
 
-		<?php $randomQuote = $wpdb->get_var("SELECT guid FROM $wpdb->posts WHERE post_type = 'quote' AND post_status = 'publish' ORDER BY rand() LIMIT 1");
-		echo 'Random Post ' + $randomQuote + ' something'; ?>
-
-		<ul>
 		<?php
 		global $post;
 		$tmp_post = $post;
-		$myposts = get_posts( 'post_type=predic&numberposts=4&orderby=rand' );
+		$myposts = get_posts( 'post_type=quote&numberposts=1&orderby=rand' );
 		foreach( $myposts as $post ) : setup_postdata($post); ?>
-		    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+		    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 		<?php endforeach; ?>
 		<?php $post = $tmp_post; ?>
-		</ul>
-<?php
-
-		$my_query = null;
-    $my_query = new WP_Query($args);
-    $message = '';
-    if( $my_query->have_posts() ) {
-      while ($my_query->have_posts()) : $my_query->the_post();
-         
-        $message .= '<blockquote>'.get_the_content().'</blockquote>';
-      endwhile;
-    }
-    wp_reset_query(); 
-    echo $message;
-?>
-
-
 
 	</section>
 

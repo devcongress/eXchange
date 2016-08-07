@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Events
+ * Template Name: Quotes
  * The template for displaying all pages that look like the resource page.
  *
  * This is the template that displays all pages by default.
@@ -18,7 +18,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'page-exchanges' ); ?>
+				<?php get_template_part( 'content', 'page-quotes' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

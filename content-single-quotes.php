@@ -11,6 +11,7 @@
 
 	<div class="enry-content">
 		<?php the_content(); ?>
+		plenty quotes from us
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'dc_exchange' ),

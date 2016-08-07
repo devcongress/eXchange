@@ -214,7 +214,7 @@ function custom_post_type_quote() {
         'label'               => __( 'Quotes', 'dc_exchange' ),
         'description'         => __( 'Quotes', 'dc_exchange' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'custom-fields', 'revisions'),
+        'supports'            => array( 'title', 'custom-fields', 'revisions'),
         'taxonomies'          => array( '' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -222,7 +222,7 @@ function custom_post_type_quote() {
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
-        'menu_position'       => 6,
+        'menu_position'       => 7,
         'menu_icon'           => 'dashicons-format-quote',
         'can_export'          => true,
         'has_archive'         => true,
@@ -238,8 +238,7 @@ add_action( 'init', 'custom_post_type_quote');
 
 
 
-
-// Done creating Custom Post Type fo eXchange
+// Done creating Custom Post Types for eXchange
 
 
 /**

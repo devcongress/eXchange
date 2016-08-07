@@ -7,8 +7,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header visible-xs">
-		<img class="entry-header-image" src="<?php bloginfo('template_directory'); ?>/images/header-480.png" alt="" />
+	<header class="entry-header">
 		<h1 class="entry-title">Events</h1>
 	</header><!-- .entry-header -->
 
