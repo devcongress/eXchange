@@ -176,9 +176,9 @@ function custom_post_type_exchange() {
         'capability_type'     => 'post',
     );
 
-    register_post_type( 'exchanges', $args );
+    register_post_type( 'exchange', $args );
  }
- 
+
 add_action( 'init', 'custom_post_type_exchange');
 
 
@@ -231,7 +231,7 @@ function custom_post_type_quote() {
         'capability_type'     => 'post',
     );
 
-    register_post_type( 'quotes', $args );
+    register_post_type( 'quote', $args );
  }
 
 add_action( 'init', 'custom_post_type_quote');
