@@ -76,6 +76,8 @@ function dc_exchange_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+    add_post_meta($id, '_name', 'value');
 }
 endif; // dc_exchange_setup
 add_action( 'after_setup_theme', 'dc_exchange_setup' );
