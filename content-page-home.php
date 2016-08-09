@@ -14,31 +14,25 @@
 			$include = get_pages('include=17');
 			$about_content = apply_filters('the_content',$include[0]->post_content);
 			$include_content = apply_filters('the_meta',$include[0]->post_title);
-			$date = esc_attr( get_post_meta( $include[0]->ID, 'time', true ) );
-
+			$upcoming_permalink = apply_filters('the_permalink',$include[0]->guid);
+			$upcoming_guest = esc_attr( get_post_meta( $include[0]->ID, 'guest', true ) );
+			$upcoming_date = esc_attr( get_post_meta( $include[0]->ID, 'date', true ) );
+			$upcoming_time = esc_attr( get_post_meta( $include[0]->ID, 'time', true ) );
+			$upcoming_invite_link = esc_attr( get_post_meta( $include[0]->ID, 'invite_link', true ) );
+			// echo print_r($include);
 		?>
-			<a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'guest', true); ?></a>
-		    <?php echo $date; ?>
-		    <?php echo get_post_meta(get_the_ID(), 'date', true); ?>
-		    <?php echo get_post_meta(get_the_ID(), 'time', true); ?>
-		    <?php echo get_post_meta(get_the_ID(), 'invite_link', true); ?>
 
-
-
-		<?php if (has_post_thumbnail( $include->ID ) ):
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-			<img class="page-featured-image" src="<?php echo $image[0]; ?>"></div>
+		<?php if (has_post_thumbnail( $include[0]->ID ) ):
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $include[0]->ID ), 'single-post-thumbnail' ); ?>
 		<?php endif; ?>
 
-			<img src="<?php echo $image[0]; ?>" class"upcoming--image" alt="">
-			<h4 class="upcoming__title"></h4>
+			<img src="<?php echo $image[0]; ?>" class="upcoming--image" alt="">
+			<h4 class="upcoming__title">eXchange with <?php echo $upcoming_guest; ?></h4>
 			<p class="upcoming__blurb"><?php echo $about_content; ?></p>
-			<p class="upcoming__blurb"><?php echo $include_content; ?></p>
-			<p class="upcoming__blurb"><?php echo print_r($include); ?></p>
-			<h6 class="upcoming__date"><?php echo $date; ?></h6>
-			<h6 class="upcoming__time"></h6>
-			<a href="#" class="upcoming__cta upcoming--join">Join Live Stream</a>
-			<a href="#" class="upcoming__cta upcoming--readmore" >Read More...</a>
+			<h6 class="upcoming__date"><?php echo $upcoming_date; ?></h6>
+			<h6 class="upcoming__time"><?php echo $upcoming_time; ?></h6>
+			<a href="<?php echo $upcoming_invite_link; ?>" class="upcoming__cta upcoming--join">Join Live Stream</a>
+			<a href="<?php echo $upcoming_permalink; ?>" class="upcoming__cta upcoming--readmore" >Read More...</a>
 		
 	</section>
 
