@@ -243,6 +243,32 @@ add_action( 'init', 'custom_post_type_quote');
 // Done creating Custom Post Types for eXchange
 
 
+
+add_action( 'add_meta_boxes', 'c3m_sponsor_meta' );
+        function c3m_sponsor_meta() {
+                add_meta_box( 'c3m_meta', 'Sponsor URL Metabox', 'c3m_sponsor_url_meta', 'post', 'side', 'high' );
+                }
+
+            function c3m_sponsor_url_meta( $post ) {
+                $c3m_sponsor_url = get_post_meta( $post->ID, '_c3m_sponsor_url', true);
+                echo 'Please enter the sponsors website link below';
+                ?>
+                <input type="text" name="c3m_sponsor_url" value="<?php echo esc_attr( $c3m_sponsor_url ); ?>" />
+                <?php
+        }
+
+add_action( 'save_post', 'c3m_save_project_meta' );
+        function c3m_save_project_meta( $post_ID ) {
+            global $post;
+            if( $post->post_type == "post" ) {
+            if (isset( $_POST ) ) {
+                update_post_meta( $post_ID, '_c3m_sponsor_url', strip_tags( $_POST['c3m_sponsor_url'] ) );
+            }
+        }
+        }
+
+
+
 /**
  * Implement the Custom Header feature.
  */
