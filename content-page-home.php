@@ -26,7 +26,7 @@
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $include[0]->ID ), 'single-post-thumbnail' ); ?>
 		<?php endif; ?>
 
-			<img src="<?php echo $image[0]; ?>" class="upcoming--image" alt="">
+			<img src="<?php echo $image[0]; ?>" class"upcoming--image" alt="">
 			<h4 class="upcoming__title">eXchange with <?php echo $upcoming_guest; ?></h4>
 			<p class="upcoming__blurb"><?php echo $about_content; ?></p>
 			<h6 class="upcoming__date"><?php echo $upcoming_date; ?></h6>
