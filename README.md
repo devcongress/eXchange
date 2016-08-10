@@ -1,7 +1,7 @@
-_strap
-======
+eXchange
+========
 
-**\_strap** is a starter theme for WordPress.
+**\eXchange** is a custom theme for DevCongress eXchange.
 It has the goal of integrating Twitter's **bootstrap** (https://github.com/twitter/bootstrap) into Automattic's **\_s** (https://github.com/Automattic/_s) with the smallest possible changeset.
 
 > \_strap works with Bootstrap :three:<br />
@@ -15,9 +15,7 @@ Installation
 1. Download the .zip
 2. Unpack it to your /wp-content/themes directory.
 3. Log in to your WordPress backend and activate it
-4. You will notice a new "Build theme" item in the Appearence section of the admin menu \- go there
-5. Choose the name and slug of your new \_strap-based, custom theme; when you submit the form, _strap will be cloned to /wp-content/themes/, in a new folder named after your theme's slug.
-6. That's it. Unless you plan on starting your theme from scratch over an over, like you had some kind of compulsive writer's block, you can now delete /wp-content/themes/_strap all together and start working on your brand new theme.
+4. That's it. All the custom post types and fields have already been created to work as expected. Unless you plan on starting your theme from scratch over an over.
 
 What you get
 ------------
@@ -34,12 +32,6 @@ What you put
 * You should add your custom styles at the end of [/style.less](https://github.com/ptbello/_strap/blob/master/style.less) and/or in extra .less files you should then `@import` in [/style.less](https://github.com/ptbello/_strap/blob/master/style.less)
 * After changes you should [compile](http://lesscss.org/usage) [/style.less](https://github.com/ptbello/_strap/blob/master/style.less) to [/style.css](https://github.com/ptbello/_strap/blob/master/style.css)
 * Of course you should edit any of the actual theme .php files as you see fit, exactly like you would do with ant other starter theme; if you alter the markup structure of the theme, i.e. create a different grid, you should use either use the orginal Bootsrap classes or the [mixins Bootstrap provides](http://getbootstrap.com/css/#grid-less) to attach the same behaviour to any element.
-
-Translations
-------------
-* Italian, by [@FrancescoGavello](https://github.com/FrancescoGavello)
-
-Have you translated \_strap into another language? Submit a pull request now!
 
 Made with \_strap
 ------------
@@ -63,6 +55,6 @@ Design by [Boumaka](http://www.boumaka.it/). Code by [@ptbello](https://github.c
 ---
 
 [http://www.spaziocar.it/](http://www.spaziocar.it/)<br />
-Design by [Boumaka](http://www.boumaka.it/). Code by [@ptbello](https://github.com/ptbello)<br />
+Design by [Claude](http://www.boumaka.it/). Code by [@ptbello](https://github.com/ptbello)<br />
 
 [![spaziocar.it](https://raw.github.com/ptbello/_strap/_strap_made/spaziocar.jpg)](http://www.spaziocar.it/)
