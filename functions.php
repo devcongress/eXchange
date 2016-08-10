@@ -51,7 +51,9 @@ function dc_exchange_widgets_init() {
 add_action( 'widgets_init', 'dc_exchange_widgets_init' );
 
 function dc_exchange_scripts() {
-	wp_enqueue_style( 'dc-exchange-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'dc-exchange-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'dc-exchange-custom-style', get_template_directory_uri() . '/css/style.css' );
 
 	wp_enqueue_script( 'dc-exchange-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
