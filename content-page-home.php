@@ -19,12 +19,11 @@
 			$upcoming_date = esc_attr( get_post_meta( $include[0]->ID, 'date', true ) );
 			$upcoming_time = esc_attr( get_post_meta( $include[0]->ID, 'time', true ) );
 			$upcoming_invite_link = esc_attr( get_post_meta( $include[0]->ID, 'invite_link', true ) );
-			// echo print_r($include);
+		
+			if (has_post_thumbnail( $include[0]->ID ) ):
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $include[0]->ID ), 'single-post-thumbnail' );
+			endif;
 		?>
-
-		<?php if (has_post_thumbnail( $include[0]->ID ) ):
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $include[0]->ID ), 'single-post-thumbnail' ); ?>
-		<?php endif; ?>
 
 			<img src="<?php echo $image[0]; ?>" class"upcoming--image" alt="">
 			<h4 class="upcoming__title">eXchange with <?php echo $upcoming_guest; ?></h4>
@@ -43,11 +42,11 @@
 		global $post;
 		$tmp_post = $post;
 		$myposts = get_posts( 'post_type=quote&numberposts=1&orderby=rand' );
-		foreach( $myposts as $post ) : setup_postdata($post); ?>
-		    <?php the_title(); ?>
+		foreach( $myposts as $post ) : setup_postdata($post);
+		    the_title(); ?>
 		    quote from <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a>
-		<?php endforeach; ?>
-		<?php $post = $tmp_post; ?>
+		<?php endforeach;
+		$post = $tmp_post; ?>
 
 	</section>
 
@@ -63,51 +62,39 @@
 	<section>
 		<h3>Most Recent eXchange</h3>
 
-
-				<?php
-		$queryObject = new WP_Query( 'post_type=exchange&posts_per_page=1' );
-		// The Loop!
-		if ($queryObject->have_posts()) {
-		    ?>
-		    <ul>
-		    <?php
-		    while ($queryObject->have_posts()) {
-		        $queryObject->the_post();
-		        ?>
-
-		        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-		    <?php
-		    }
-		    ?>
-		    </ul>
-		    <div><a href="#">View More</a></div>
-		    <?php
-		}
+		<?php
+			$queryObject = new WP_Query( 'post_type=exchange&posts_per_page=1' );
+		
+			// The Loop!
+			if ($queryObject->have_posts()) {
+			    while ($queryObject->have_posts()) {
+			        $queryObject->the_post();
+			        ?>
+			        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			    <?php
+			    }
+			}
 		?>
 	</section>
 
 	<section>
 		<h3>Other Previous eXchanges</h3>
 
-				<?php
-		$queryObject = new WP_Query( 'post_type=exchange&posts_per_page=5&offset=1' );
-		// The Loop!
-		if ($queryObject->have_posts()) {
-		    ?>
-		    <ul>
-		    <?php
-		    while ($queryObject->have_posts()) {
-		        $queryObject->the_post();
-		        ?>
+		<?php
+			$queryObject = new WP_Query( 'post_type=exchange&posts_per_page=5&offset=1' );
 
-		        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-		    <?php
-		    }
-		    ?>
-		    </ul>
-		    <div><a href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a></div>
-		    <?php
-		}
+			// The Loop!
+			if ($queryObject->have_posts()) {
+			    while ($queryObject->have_posts()) {
+			        $queryObject->the_post();
+			        ?>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			    <?php
+			    }
+			    ?>
+			    <a href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a>
+			    <?php
+			}
 		?>
 	</section>
 
@@ -120,12 +107,6 @@
 	<div class="entry-content">
 
 		<?php the_content(); ?>
-		
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'dc_exchange' ),
-				'after'  => '</div>',
-			) );
-		?>
+
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->
