@@ -1,4 +1,10 @@
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Cairo', sans-serif;
+    font-weight: 600;
     color: $color__dc-blue;
+}
+
+.section__heading {
+    font-size: 32px;
+    text-align: center;
 }

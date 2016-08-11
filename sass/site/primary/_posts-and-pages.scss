@@ -1,0 +1,13 @@
+.section__hero {
+    background-image: url(../images/hero-bg.png);
+    background-repeat: repeat;
+}
+
+.bg--deep-blue {
+    background: $color__dc-blue;
+    color: #fff;
+}
+
+.bg--light-blue {
+    background: $color__dc-light-blue;
+}
