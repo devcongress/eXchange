@@ -26,13 +26,15 @@
 				endif;
 			?>
 
+			<div class="upcoming--object">
 				<img src="<?php echo $image[0]; ?>" class"upcoming--image" alt="">
 				<h4 class="upcoming__title">eXchange with <?php echo $upcoming_guest; ?></h4>
 				<p class="upcoming__blurb"><?php echo $about_content; ?></p>
 				<h6 class="upcoming__date"><?php echo $upcoming_date; ?></h6>
 				<h6 class="upcoming__time"><?php echo $upcoming_time; ?></h6>
 				<a href="<?php echo $upcoming_invite_link; ?>" class="upcoming__cta upcoming--join">Join Live Stream</a>
-				<a href="<?php echo $upcoming_permalink; ?>" class="upcoming__cta upcoming--readmore" >Read More...</a>			
+				<a href="<?php echo $upcoming_permalink; ?>" class="upcoming__cta upcoming--readmore">Read More...</a>			
+			</div>
 		</div>
 	</section>
 

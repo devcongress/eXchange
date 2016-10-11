@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all Single Event posts.
+ * The Template for displaying all Single eXchanges posts.
  *
  * @package DevCongress eXchange
  */
