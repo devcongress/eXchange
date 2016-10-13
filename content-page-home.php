@@ -96,24 +96,26 @@
 				if ($queryObject->have_posts()) {
 				    while ($queryObject->have_posts()) {
 				        $queryObject->the_post();
+				        $snippet_ = apply_filters('the_permalink',$include[0]->guid);
+				$upcoming_guest = esc_attr( get_post_meta( $include[0]->ID, 'guest', true ) );
 				        ?>
 						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				    <?php
 				    }
 				    ?>
-				    <a href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a>
+				    <a class="button button__blue button__default " href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a>
 				    <?php
 				}
 			?>	
 		</div>
 	</section>
-
+<!-- 
 	<section class="bg--light-blue">
 		<div class="container">
 			<h2 class="section__heading">Recommend</h2>
 			add link to beautiful google form.
 		</div>
-	</section>
+	</section> -->
 
 
 	<div class="entry-content">
