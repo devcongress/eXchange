@@ -27,27 +27,28 @@
 			?>
 
 			<div class="upcoming--object">
-				<img src="<?php echo $image[0]; ?>" class"upcoming--image" alt="">
+				<img src="<?php echo $image[0]; ?>" class="upcoming--image" alt="">
 				<h4 class="upcoming__title">eXchange with <?php echo $upcoming_guest; ?></h4>
-				<p class="upcoming__blurb"><?php echo $about_content; ?></p>
-				<h6 class="upcoming__date"><?php echo $upcoming_date; ?></h6>
-				<h6 class="upcoming__time"><?php echo $upcoming_time; ?></h6>
-				<a href="<?php echo $upcoming_invite_link; ?>" class="upcoming__cta upcoming--join">Join Live Stream</a>
-				<a href="<?php echo $upcoming_permalink; ?>" class="upcoming__cta upcoming--readmore">Read More...</a>			
+				<div class="upcoming__blurb"><?php echo $about_content; ?></div>
+				<h6 class="upcoming__date uppercase"><?php echo $upcoming_date; ?></h6>
+				<h6 class="upcoming__time uppercase"><?php echo $upcoming_time; ?></h6>
+				<span class="upcoming__action--buttons">
+					<a href="<?php echo $upcoming_invite_link; ?>" class="upcoming__cta upcoming--join button button__default button__pink">Join Live Stream</a>
+					<a href="<?php echo $upcoming_permalink; ?>" class="upcoming__cta upcoming--readmore button button__default button__blue">Read More...</a>
+				</span>
 			</div>
 		</div>
 	</section>
 
 	<section class="bg--deep-blue">
 		<div class="container">		
-			apprenticeship quotes
 			<?php
 			global $post;
 			$tmp_post = $post;
 			$myposts = get_posts( 'post_type=quote&numberposts=1&orderby=rand' );
-			foreach( $myposts as $post ) : setup_postdata($post);
-			    the_title(); ?>
-			    quote from <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a>
+			foreach( $myposts as $post ) : setup_postdata($post); ?>
+				<blockquote class="quote__text"><?php echo the_title(); ?></blockquote>
+			    ~ quote from <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a>
 			<?php endforeach;
 			$post = $tmp_post; ?>
 		</div>

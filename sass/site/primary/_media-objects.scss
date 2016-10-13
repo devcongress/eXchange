@@ -1,0 +1,63 @@
+.upcoming--object{
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.upcoming--image{
+    width: 220px;
+    height: auto;
+    float: left;
+    margin-right: 20px;
+    box-shadow: 0px 24px 22px 0px rgba(0,0,0,0.13);
+}
+
+.upcoming__title{
+    font-size: 28px;
+    color: $color__dc-pink;
+    margin-bottom: 10px;
+}
+
+.upcoming__blurb{
+    min-height: 81px;
+
+    p {
+        margin-top: auto;
+    }
+}
+
+.upcoming__date{
+    display: inline;
+}
+
+.upcoming__time{
+    display: inline;
+    margin-left: 10px;
+}
+
+.upcoming__action--buttons {
+    display: block;
+    margin-top: 10px;
+}
+
+.upcoming__cta{
+
+}
+
+.upcoming--join{
+    
+}
+
+.upcoming--readmore{
+    margin-left: 10px;
+}
+
+.quote__text {
+    font-family: "Cairo", sans-serif;
+    font-size: 1.3em;
+    text-align: right
+}
+
+.quote__author {
+
+}
