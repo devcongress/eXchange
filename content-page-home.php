@@ -41,14 +41,15 @@
 	</section>
 
 	<section class="bg--deep-blue">
-		<div class="container">		
+		<div class="quote-container container">		
 			<?php
 			global $post;
 			$tmp_post = $post;
 			$myposts = get_posts( 'post_type=quote&numberposts=1&orderby=rand' );
 			foreach( $myposts as $post ) : setup_postdata($post); ?>
 				<blockquote class="quote__text"><?php echo the_title(); ?></blockquote>
-			    ~ quote from <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a>
+			    <!-- <p>~ quote from <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a></p> -->
+			    <p class="quote__author">~ quote from <?php echo get_post_meta(get_the_ID(), 'author', true); ?></p>
 			<?php endforeach;
 			$post = $tmp_post; ?>
 		</div>
