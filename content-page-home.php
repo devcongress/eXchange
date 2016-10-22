@@ -97,10 +97,11 @@
 				    while ($queryObject->have_posts()) {
 				        $queryObject->the_post();
 				        $snippet_ = apply_filters('the_permalink',$include[0]->guid);
-				$upcoming_guest = esc_attr( get_post_meta( $include[0]->ID, 'guest', true ) );
+				$upcoming_guest = esc_attr( get_post_meta( $include[0]->ID, 'youtube', true ) );
 				        ?>
 						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				    <?php
+				    echo $upcoming_guest;
 				    }
 				    ?>
 				    <a class="button button__blue button__default " href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a>

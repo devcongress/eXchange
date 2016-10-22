@@ -15,10 +15,11 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'dc_exchange' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'dc_exchange' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'dc_exchange' ), 'dc_exchange', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
-		</div><!-- .site-info -->
+            <img src="<?php echo get_template_directory_uri(); ?>/images/exchange-collage.svg" alt="" />
+        </div><!-- .site-info -->
+        <div class="footer-attrib">
+            <a href="http://devcongress.org"><img src="<?php echo get_template_directory_uri(); ?>/images/devcongress.svg" class="org-logo" alt="" /></a>
+        </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
