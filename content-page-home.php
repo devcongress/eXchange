@@ -49,7 +49,7 @@
 			foreach( $myposts as $post ) : setup_postdata($post); ?>
 				<blockquote class="quote__text"><?php echo the_title(); ?></blockquote>
 			    <!-- <p>~ quote from <a href="<?php the_permalink(); ?>"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></a></p> -->
-			    <p class="quote__author">~ quote from <?php echo get_post_meta(get_the_ID(), 'author', true); ?></p>
+			    <p class="quote__author"> ~ <?php echo get_post_meta(get_the_ID(), 'author', true); ?></p>
 			<?php endforeach;
 			$post = $tmp_post; ?>
 		</div>

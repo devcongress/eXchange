@@ -27,54 +27,36 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header container" role="banner">
 		<div class="site-branding">
-			<?php if ( is_front_page() || is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+			<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/exchange-logo.svg" class="header-logo" alt="devcongress exchange logo">            
+                </a>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
+		<nav class="main-navigation" role="navigation">
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'dc_exchange' ); ?></a>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-                    <span class="sr-only"><?php _e('Toggle navigation', 'dc_exchange'); ?></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!--<a class="navbar-brand" href="#">Brand</a>-->
-            </div>
 
-            <div class="collapse navbar-collapse" id="navbar-collapse-main">
+            <div>
 	            <ul class="nav navbar-nav">
 		            <?php if( has_nav_menu( 'primary' ) ) :
 			            wp_nav_menu( array(
 		                        'theme_location'  => 'primary',
 		                        'container'       => false,
-		                        //'menu_class'      => 'nav navbar-nav',//  'nav navbar-right'
 		                        'walker'          => new Bootstrap_Nav_Menu(),
 		                        'fallback_cb'     => null,
-				                'items_wrap'      => '%3$s',// skip the containing <ul>
+				                'items_wrap'      => '%3$s',
 		                    )
 		                );
 	                else :
 		                wp_list_pages( array(
-				                'menu_class'      => 'nav navbar-nav',//  'nav navbar-right'
+				                'menu_class'      => 'nav navbar-nav',
 				                'walker'          => new Bootstrap_Page_Menu(),
 				                'title_li'        => null,
 			                )
 		                );
 		            endif; ?>
 	            </ul>
-	            <?php get_search_form(); ?>
             </div><!-- /.navbar-collapse -->
 
 		</nav><!-- #site-navigation -->

@@ -7,3 +7,47 @@
 ## Menus
 --------------------------------------------------------------*/
 @import "menus";
+
+
+.site-header {
+    height: 50px;
+    padding: 5px 0;
+}
+
+.site-title {
+    font-size: 1px;
+}
+
+.site-branding {
+    float: left;
+}
+
+
+@media (max-width: 960px) {
+
+    .site-header {
+        margin: 5px 0 0 0;
+    }
+
+    .site-branding {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .site-header {
+        height: 100px;
+    }
+
+    .site-branding {
+        margin-left: calc(50% - 85.5px);
+        float: none;
+    }
+
+    .main-navigation {
+        display: block;
+        float: none;
+        margin-left: calc(50% - 149px);
+    }
+}
