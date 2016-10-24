@@ -71,45 +71,37 @@
 			<h2 class="section__heading">Most Recent eXchange</h2>
 
 			<?php
-				$queryObject = new WP_Query( 'post_type=exchange&posts_per_page=1' );
+			global $post;
+			$tmp_post = $post;
+			$myposts = get_posts( 'post_type=exchange&numberposts=1&orderby=desc' );
+			foreach( $myposts as $post ) : setup_postdata($post); ?>
+				<a class="quote__text" href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo get_post_meta(get_the_ID(), 'youtube_id', true); ?>" frameborder="0" allowfullscreen></iframe>
+			<?php endforeach;
+			$post = $tmp_post; ?>
 			
-				// The Loop!
-				if ($queryObject->have_posts()) {
-				    while ($queryObject->have_posts()) {
-				        $queryObject->the_post();
-				        ?>
-				        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				    <?php
-				    }
-				}
-			?>
 		</div>
 	</section>
 
 	<section>
 		<div class="container">
 			<h2 class="section__heading">Other Previous eXchanges</h2>
-			<?php
-				$queryObject = new WP_Query( 'post_type=exchange&posts_per_page=5&offset=1' );
 
-				// The Loop!
-				if ($queryObject->have_posts()) {
-				    while ($queryObject->have_posts()) {
-				        $queryObject->the_post();
-				        $snippet_ = apply_filters('the_permalink',$include[0]->guid);
-				$upcoming_guest = esc_attr( get_post_meta( $include[0]->ID, 'youtube', true ) );
-				        ?>
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				    <?php
-				    echo $upcoming_guest;
-				    }
-				    ?>
-				    <a class="button button__blue button__default " href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a>
-				    <?php
-				}
-			?>	
+			<?php
+				global $post;
+				$tmp_post = $post;
+				$myposts = get_posts( 'post_type=exchange&posts_per_page=5&offset=1' );
+				foreach( $myposts as $post ) : setup_postdata($post); ?>
+					<a class="quote__text" href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo get_post_meta(get_the_ID(), 'youtube_id', true); ?>" frameborder="0" allowfullscreen></iframe>
+				<?php endforeach;
+				$post = $tmp_post;
+			?>
+		
+			<a class="button button__blue button__default " href="http://localhost:8888/eXchange/exchange">View All eXchange Episodes</a>
 		</div>
 	</section>
+
 <!-- 
 	<section class="bg--light-blue">
 		<div class="container">
